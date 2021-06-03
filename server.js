@@ -10,7 +10,9 @@ app.get("/", async (req, res) => {
 
   const text = await data.text();
 
-  console.log(text);
+  const prices = JSON.parse(text);
+
+  console.log(prices.data.base);
 
   res.send(`Name Is: ${req.query.name}`);
 });
