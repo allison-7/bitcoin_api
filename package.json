@@ -1,7 +1,29 @@
 {
-    "dependencies": {
-        "express": "^4.17.1",
-        "node-fetch": "^2.6.1",
-        "pg": "^8.6.0"
-    }
+  "name": "bitcoin_api",
+  "version": "1.0.0",
+  "description": "bitcoin api for prices over time",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/allison-7/bitcoin_api.git"
+  },
+  "author": "allison-7",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/allison-7/bitcoin_api/issues"
+  },
+  "homepage": "https://github.com/allison-7/bitcoin_api#readme"
 }

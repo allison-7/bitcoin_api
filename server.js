@@ -12,10 +12,6 @@ const client = new Client({
 });
 client.connect();
 
-client.query("INSERT INTO coin VALUES ('eth', 'blue')", (err,res) => {
-  console.log(err, res)
-});
-
 app.get("/", async (req, res) => {
   const data = await fetch(
     `https://api.coinbase.com/v2/prices/spot?currency=${req.query.currency}`
@@ -28,8 +24,13 @@ app.get("/", async (req, res) => {
   res.send(prices);
 });
 
+app.get("/coin", async (req, res) => {
+  const response = await client.query("SELECT * FROM coin");
+  res.send(JSON.stringify(response.rows));
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Now running on http://localhost:${port}`);
 });
 
 //client.end();
