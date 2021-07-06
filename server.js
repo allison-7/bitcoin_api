@@ -1,6 +1,6 @@
 const express = require("express");
-const fetch = require("node-fetch");
 const { Client } = require("pg");
+const pollForData = require("./coinbase");
 const app = express();
 const port = 3000;
 const client = new Client({
@@ -13,15 +13,7 @@ const client = new Client({
 client.connect();
 
 app.get("/", async (req, res) => {
-  const data = await fetch(
-    `https://api.coinbase.com/v2/prices/spot?currency=${req.query.currency}`
-  );
-
-  const text = await data.text();
-
-  const prices = JSON.parse(text);
-
-  res.send(prices);
+  res.send("");
 });
 
 app.get("/coin", async (req, res) => {
@@ -33,4 +25,4 @@ app.listen(port, () => {
   console.log(`Now running on http://localhost:${port}`);
 });
 
-//client.end();
+pollForData(client);
